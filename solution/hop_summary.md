@@ -18,7 +18,7 @@ warnings.filterwarnings('ignore')
 
 ```python
 # file path variable
-json_file = path.join('raw_data', 'purchase_data.json')
+json_file = path.join('..', 'raw_data', 'purchase_data.json')
 ```
 
 
