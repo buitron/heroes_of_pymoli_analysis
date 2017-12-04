@@ -1,8 +1,22 @@
 
 # Heroes of Pymoli Data Analysis
-* First Observation
-* Second Observation
-* Third Observation
+## abstract analysis done on sample data: purchase_data.json
+* Male players purchase more in-game items than any other genders.
+
+
+* The age bracket of players that make the most purchases are:
+    * 21 - 26 with about 36% of total in-game purchases
+    * 16 - 21 with about 27% of total in-game purchases
+    * 11 - 16 with about 12% of total in-game purchases
+
+
+* One thing to note is that even though older age bracket players don't make as many purchases as younger age groups do, they do tend to spend on average more per item. They are willing to use their money on more costly items. The age group that is recognized as the top spender on a per-item basis are players of age 31-36 spending on average $3.08 per item.
+
+
+* The items that sell the most tend to sell around the mid to lower $2 range.
+
+
+* The more profitable items (assuming the cost of production for all items are equal) tend to sell around the mid to upper $4 range.
 
 
 ```python
