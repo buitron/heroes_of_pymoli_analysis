@@ -382,7 +382,7 @@ labels.append("{}+".format(bins[-2]))
 
 
 ```python
-# bin cut made to the unique_player_df 
+# bin cut made to the unique_player_df
 unique_player_df['uPlayer Age Range'] = pd.cut(list(unique_player_df['uPlayer Age']), bins=bins, labels=labels)
 
 # generate a new dataframe using the groupby method on players' ages
@@ -907,5 +907,9 @@ profitable_items_id_df.head()
   </tbody>
 </table>
 </div>
+
+
+# BTW, HAPPY HOLIDAYS AND HAPPY NEW YEARS!
+![Happy Holidays Pymoli](../images/merry_christmas_pymoli.jpg)
 
 
