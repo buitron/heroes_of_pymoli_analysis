@@ -74,7 +74,6 @@ As final considerations:
 * You must submit a link to your Jupyter Notebook with the viewable Data Frames.
 * You must include an exported markdown version of your Notebook called  `README.md` in your GitHub repository.
 * You must include a written description of three observable trends based on the data.
-* See [Example Solution](HeroesOfPymoli/HeroesOfPymoli_Example.pdf) for a reference on expected format.
 
 ## Hints and Considerations
 
