@@ -261,6 +261,8 @@ p_male_ct = len(df.loc[df['Gender']=='Male'])
 p_female_ct = len(df.loc[df['Gender']=='Female'])
 p_other_gender_ct = len(df.loc[df['Gender']=='Other / Non-Disclosed'])
 
+p_total_ct = p_male_ct + p_female_ct + p_other_gender_ct
+
 # avg gender purchase price
 gender_avg_groupby_df = df.groupby(by='Gender').mean()
 male_avg_pp = gender_avg_groupby_df['Price']['Male']
@@ -273,10 +275,12 @@ male_sum_pp = gender_sum_groupby_df['Price']['Male']
 female_sum_pp = gender_sum_groupby_df['Price']['Female']
 other_gender_sum_pp = gender_sum_groupby_df['Price']['Other / Non-Disclosed']
 
+total_sum_pp = male_sum_pp + female_sum_pp + other_gender_sum_pp
+
 # normalized totals
-male_norm_totals = male_sum_pp / p_male_ct
-female_norm_totals = female_sum_pp / p_female_ct
-other_gender_norm_totals = other_gender_sum_pp / p_other_gender_ct
+male_norm_totals = total_sum_pp / p_male_ct
+female_norm_totals = total_sum_pp / p_female_ct
+other_gender_norm_totals = total_sum_pp / p_other_gender_ct
 
 # format figures
 format_list = [
@@ -336,21 +340,21 @@ p_gender_analaysis_df
       <td>633</td>
       <td>$2.95</td>
       <td>$1867.68</td>
-      <td>$2.95</td>
+      <td>$3.61</td>
     </tr>
     <tr>
       <th>Female</th>
       <td>136</td>
       <td>$2.82</td>
       <td>$382.91</td>
-      <td>$2.82</td>
+      <td>$16.81</td>
     </tr>
     <tr>
       <th>Other / Non-Disclosed</th>
       <td>11</td>
       <td>$3.25</td>
       <td>$35.74</td>
-      <td>$3.25</td>
+      <td>$207.85</td>
     </tr>
   </tbody>
 </table>
@@ -382,7 +386,7 @@ labels.append("{}+".format(bins[-2]))
 
 
 ```python
-# bin cut made to the unique_player_df
+# bin cut made to the unique_player_df 
 unique_player_df['uPlayer Age Range'] = pd.cut(list(unique_player_df['uPlayer Age']), bins=bins, labels=labels)
 
 # generate a new dataframe using the groupby method on players' ages
@@ -482,7 +486,7 @@ p_age_range_groupby_mn_df = df.groupby(by='Player Age Range').mean()
 p_age_range_groupby_sm_df = df.groupby(by='Player Age Range').sum()
 p_age_range_groupby_std_df = df.groupby(by='Player Age Range').std()
 
-normalized = p_age_range_groupby_sm_df['Price'] / p_age_range_groupby_ct_df['Price']
+normalized = df['Price'].sum() / p_age_range_groupby_ct_df['Price']
 
 # filter rows
 p_age_range_groupby_mn_df = p_age_range_groupby_mn_df['Price'].map("${:.2f}".format)
@@ -535,56 +539,56 @@ p_age_range_groupby_ct_df
       <td>41</td>
       <td>$3.01</td>
       <td>$123.38</td>
-      <td>$3.01</td>
+      <td>$55.76</td>
     </tr>
     <tr>
       <th>11-16</th>
       <td>92</td>
       <td>$2.81</td>
       <td>$258.10</td>
-      <td>$2.81</td>
+      <td>$24.85</td>
     </tr>
     <tr>
       <th>16-21</th>
       <td>204</td>
       <td>$2.88</td>
       <td>$588.40</td>
-      <td>$2.88</td>
+      <td>$11.21</td>
     </tr>
     <tr>
       <th>21-26</th>
       <td>275</td>
       <td>$2.96</td>
       <td>$814.07</td>
-      <td>$2.96</td>
+      <td>$8.31</td>
     </tr>
     <tr>
       <th>26-31</th>
       <td>79</td>
       <td>$2.98</td>
       <td>$235.61</td>
-      <td>$2.98</td>
+      <td>$28.94</td>
     </tr>
     <tr>
       <th>31-36</th>
       <td>49</td>
       <td>$3.08</td>
       <td>$150.78</td>
-      <td>$3.08</td>
+      <td>$46.66</td>
     </tr>
     <tr>
       <th>36-41</th>
       <td>37</td>
       <td>$2.90</td>
       <td>$107.35</td>
-      <td>$2.90</td>
+      <td>$61.79</td>
     </tr>
     <tr>
       <th>41+</th>
       <td>3</td>
       <td>$2.88</td>
       <td>$8.64</td>
-      <td>$2.88</td>
+      <td>$762.11</td>
     </tr>
   </tbody>
 </table>
@@ -909,5 +913,5 @@ profitable_items_id_df.head()
 </div>
 
 
-# BTW, MERRY CHRISTMAS AND A HAPPY NEW YEAR!!!
+# BTW, HAVE A MERRY CHRISTMAS AND A HAPPY NEW YEAR!!!
 ![Happy Holidays Pymoli](../images/merry_christmas_pymoli.jpg)
